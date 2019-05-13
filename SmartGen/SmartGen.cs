@@ -40,7 +40,7 @@ namespace SmartGen
                     {
                         //Adjetive + Noun
                         //if the username is too small or too long, well keep going.
-                        while (username == "" || username.Length < 5 || username.Length > 20)
+                        while (username == "" || username.Length < 5 /* MINIMUM VALUE */ || username.Length > 20 /* MAXIMUM VALUE */)
                         {
                             string one = adjs[ran.Next(0, adjs.Length - 1)];
                             while (one == "" || one == " ") one = adjs[ran.Next(0, adjs.Length - 1)];
@@ -70,7 +70,7 @@ namespace SmartGen
                     {
                         //Verbs + Noun
                         //if the username is too small or too long, well keep going.
-                        while (username == "" || username.Length < 5 || username.Length > 20)
+                        while (username == "" || username.Length < 5 /* MINIMUM VALUE */ || username.Length > 20 /* MAXIMUM VALUE */)
                         {
                             string one = verbs[ran.Next(0, verbs.Length - 1)];
                             while (one == "" || one == " ") one = verbs[ran.Next(0, verbs.Length - 1)];
@@ -98,7 +98,7 @@ namespace SmartGen
                     {
                         //Adverb + Noun
                         //if the username is too small or too long, well keep going.
-                        while (username == "" || username.Length < 5 || username.Length > 20)
+                        while (username == "" || username.Length < 5 /* MINIMUM VALUE */ || username.Length > 20 /* MAXIMUM VALUE */)
                         {
                             string one = adverbs[ran.Next(0, adverbs.Length - 1)];
                             while (one == "" || one == " ") one = adverbs[ran.Next(0, adverbs.Length - 1)];
