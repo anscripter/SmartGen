@@ -1,8 +1,8 @@
 # SmartGen
 HOW TO USE:
 
-1.) Call the Initialize class
+1.) Create a new "SmartGenerator" instance
 
-2.) Call the GenerateName Class with your desired minimum and maximum length
+2.) Call the GenerateName Class with your desired settings!
 
 Enjoy!
