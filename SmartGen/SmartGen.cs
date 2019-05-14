@@ -19,10 +19,10 @@ namespace SmartGen
         /// </summary>
         public SmartGenerator()
         {
-            adjs = Resources.Adjetives.Split("\r\n".ToCharArray());
-            nouns = Resources.Nouns.ToString().Split("\r\n".ToCharArray());
-            verbs = Resources.Verbs.Split("\r\n".ToCharArray());
-            adverbs = Resources.Adverbs.Split("\r\n".ToCharArray());
+            adjs = Resources.Adjetives.ToLower().Split("\r\n".ToCharArray());
+            nouns = Resources.Nouns.ToLower().Split("\r\n".ToCharArray());
+            verbs = Resources.Verbs.ToLower().Split("\r\n".ToCharArray());
+            adverbs = Resources.Adverbs.ToLower().Split("\r\n".ToCharArray());
         }
         /// <summary>
         /// After initializing the generator, its ready to start!
@@ -34,25 +34,29 @@ namespace SmartGen
         {
             string username = "";
             //First we add a switch so we can randomly decide what kind of username we want.
-            switch (new Random().Next(1, 3))
+            switch (ran.Next(1, 3))
             {
                 case 1:
                     {
                         //Adjetive + Noun
                         //if the username is too small or too long, well keep going.
-                        while (username == "" || username.Length < 5 /* MINIMUM VALUE */ || username.Length > 20 /* MAXIMUM VALUE */)
+                        while (username == "" || username.Length < 3 /* MINIMUM VALUE */ || username.Length > 10 /* MAXIMUM VALUE */)
                         {
                             string one = adjs[ran.Next(0, adjs.Length - 1)];
                             while (one == "" || one == " ") one = adjs[ran.Next(0, adjs.Length - 1)];
                             string two = nouns[ran.Next(0, nouns.Length - 1)];
                             while (two == "" || two == " ") two = nouns[ran.Next(0, nouns.Length - 1)];
+                            //Pretty self-explanatory <3
                             one = one.ToLower();
                             two = two.ToLower();
-                            //Pretty self-explanatory <3
                             if (upperCase)
                             {
-                                one = one.Replace(one.Substring(0, 1), one.Substring(0, 1).ToUpper());
-                                two = one.Replace(two.Substring(0, 1), two.Substring(0, 1).ToUpper());
+                                char o = one.Substring(0, 1).ToCharArray()[0];
+                                char t = two.Substring(0, 1).ToCharArray()[0];
+                                one = one.Remove(0, 1);
+                                one = o.ToString().ToUpper() + one;
+                                two = two.Remove(0, 1);
+                                two = t.ToString().ToUpper() + two;
                             }
                             if (!allinOne)
                             {
@@ -70,17 +74,23 @@ namespace SmartGen
                     {
                         //Verbs + Noun
                         //if the username is too small or too long, well keep going.
-                        while (username == "" || username.Length < 5 /* MINIMUM VALUE */ || username.Length > 20 /* MAXIMUM VALUE */)
+                        while (username == "" || username.Length < 3 /* MINIMUM VALUE */ || username.Length > 10 /* MAXIMUM VALUE */)
                         {
                             string one = verbs[ran.Next(0, verbs.Length - 1)];
                             while (one == "" || one == " ") one = verbs[ran.Next(0, verbs.Length - 1)];
                             string two = nouns[ran.Next(0, nouns.Length - 1)];
                             while (two == "" || two == " ") two = nouns[ran.Next(0, nouns.Length - 1)];
                             //Pretty self-explanatory <3
+                            one = one.ToLower();
+                            two = two.ToLower();
                             if (upperCase)
                             {
-                                one = one.Replace(one.Substring(0, 1), one.Substring(0, 1).ToUpper());
-                                two = one.Replace(two.Substring(0, 1), two.Substring(0, 1).ToUpper());
+                                char o = one.Substring(0, 1).ToCharArray()[0];
+                                char t = two.Substring(0, 1).ToCharArray()[0];
+                                one = one.Remove(0, 1);
+                                one = o.ToString().ToUpper() + one;
+                                two = two.Remove(0, 1);
+                                two = t.ToString().ToUpper() + two;
                             }
                             if (!allinOne)
                             {
@@ -98,17 +108,23 @@ namespace SmartGen
                     {
                         //Adverb + Noun
                         //if the username is too small or too long, well keep going.
-                        while (username == "" || username.Length < 5 /* MINIMUM VALUE */ || username.Length > 20 /* MAXIMUM VALUE */)
+                        while (username == "" || username.Length < 3 /* MINIMUM VALUE */ || username.Length > 10 /* MAXIMUM VALUE */)
                         {
                             string one = adverbs[ran.Next(0, adverbs.Length - 1)];
                             while (one == "" || one == " ") one = adverbs[ran.Next(0, adverbs.Length - 1)];
                             string two = nouns[ran.Next(0, nouns.Length - 1)];
                             while (two == "" || two == " ") two = nouns[ran.Next(0, nouns.Length - 1)];
                             //Pretty self-explanatory <3
+                            one = one.ToLower();
+                            two = two.ToLower();
                             if (upperCase)
                             {
-                                one = one.Replace(one.Substring(0, 1), one.Substring(0, 1).ToUpper());
-                                two = one.Replace(two.Substring(0, 1), two.Substring(0, 1).ToUpper());
+                                char o = one.Substring(0, 1).ToCharArray()[0];
+                                char t = two.Substring(0, 1).ToCharArray()[0];
+                                one = one.Remove(0, 1);
+                                one = o.ToString().ToUpper() + one;
+                                two = two.Remove(0, 1);
+                                two = t.ToString().ToUpper() + two;
                             }
                             if (!allinOne)
                             {
@@ -124,7 +140,15 @@ namespace SmartGen
                     }
             }
             //Replace unwanted chars
-            return username.Replace("-", "").Replace("'", "");
+            foreach(char c in username)
+            {
+                string valuablechars = allinOne == true ? "abcdefghijklmnopqrstuvwxyz" : "abcdefghijklmnopqrstuvwxyz ";
+                if (!valuablechars.Contains(c.ToString().ToLower()))
+                {
+                    username = username.Replace(c.ToString(), "");
+                }
+            }
+            return username;
         }
         void IDisposable.Dispose()
         {
