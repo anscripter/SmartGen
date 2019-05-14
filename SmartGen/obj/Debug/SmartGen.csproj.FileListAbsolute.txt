@@ -1,8 +1,0 @@
-C:\Users\Jayhawk\Source\Repos\SmartGen\SmartGen\bin\Debug\SmartGen.dll
-C:\Users\Jayhawk\Source\Repos\SmartGen\SmartGen\bin\Debug\SmartGen.pdb
-C:\Users\Jayhawk\Source\Repos\SmartGen\SmartGen\obj\Debug\SmartGen.csprojAssemblyReference.cache
-C:\Users\Jayhawk\Source\Repos\SmartGen\SmartGen\obj\Debug\SmartGen.Properties.Resources.resources
-C:\Users\Jayhawk\Source\Repos\SmartGen\SmartGen\obj\Debug\SmartGen.csproj.GenerateResource.cache
-C:\Users\Jayhawk\Source\Repos\SmartGen\SmartGen\obj\Debug\SmartGen.csproj.CoreCompileInputs.cache
-C:\Users\Jayhawk\Source\Repos\SmartGen\SmartGen\obj\Debug\SmartGen.dll
-C:\Users\Jayhawk\Source\Repos\SmartGen\SmartGen\obj\Debug\SmartGen.pdb
