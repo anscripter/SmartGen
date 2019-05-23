@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DiscordRaper.Properties;
+using YourProject.Properties;
 namespace SmartGen
 {
     public class SmartGenerator : IDisposable
